@@ -1,0 +1,19 @@
+.dashboard {
+  width: calc(100% - 117px);
+  padding: 60px 90px 0 110px;
+}
+
+.dashboard__header .greeting {
+  font-size: var(--font-size-48);
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.dashboard__header .firstname {
+  color: var(--primary-color);
+}
+
+.dashboard__header .motivationalSpeech {
+  margin-top: 0;
+}
