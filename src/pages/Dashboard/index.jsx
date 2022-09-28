@@ -4,6 +4,7 @@ import DailyActivityChart from '../../components/DailyActivityChart'
 import AverageSessionsChart from '../../components/AverageSessionsChart'
 import PerformanceChart from '../../components/PerformanceChart'
 import GoalChart from '../../components/GoalChart'
+import NutrientCard from '../../components/NutrientCard'
 import iconCalories from '../../assets/svg/icon-calories.svg'
 import iconProteins from '../../assets/svg/icon-proteins.svg'
 import iconCarbohydrates from '../../assets/svg/icon-carbohydrates.svg'
@@ -32,50 +33,30 @@ function Dashboard() {
           </div>
         </div>
         <div className="dashboard__nutrients">
-          <div className="dashboard__nutrient">
-            <div className="dashboard__nutrientIcon dashboard__nutrientIcon--calories">
-              <img src={iconCalories} alt="" />
-            </div>
-            <div className="dashboard__nutrientInformations">
-              <p className="dashboard__nutrientQuantity">
-                {mock.USER_MAIN_DATA[0].keyData.calorieCount}Cal
-              </p>
-              <p className="dashboard__nutrientName">Calories</p>
-            </div>
-          </div>
-          <div className="dashboard__nutrient">
-            <div className="dashboard__nutrientIcon dashboard__nutrientIcon--proteins">
-              <img src={iconProteins} alt="" />
-            </div>
-            <div className="dashboard__nutrientInformations">
-              <p className="dashboard__nutrientQuantity">
-                {mock.USER_MAIN_DATA[0].keyData.proteinCount}g
-              </p>
-              <p className="dashboard__nutrientName">Proteines</p>
-            </div>
-          </div>
-          <div className="dashboard__nutrient">
-            <div className="dashboard__nutrientIcon dashboard__nutrientIcon--carbohydrates">
-              <img src={iconCarbohydrates} alt="" />
-            </div>
-            <div className="dashboard__nutrientInformations">
-              <p className="dashboard__nutrientQuantity">
-                {mock.USER_MAIN_DATA[0].keyData.carbohydrateCount}g
-              </p>
-              <p className="dashboard__nutrientName">Glucides</p>
-            </div>
-          </div>
-          <div className="dashboard__nutrient">
-            <div className="dashboard__nutrientIcon dashboard__nutrientIcon--lipids">
-              <img src={iconLipids} alt="" />
-            </div>
-            <div className="dashboard__nutrientInformations">
-              <p className="dashboard__nutrientQuantity">
-                {mock.USER_MAIN_DATA[0].keyData.lipidCount}g
-              </p>
-              <p className="dashboard__nutrientName">Lipides</p>
-            </div>
-          </div>
+          <NutrientCard
+            data={mock.USER_MAIN_DATA[0].keyData.calorieCount}
+            name="Calories"
+            className="nutrient__icon--calories"
+            icon={iconCalories}
+          />
+          <NutrientCard
+            data={mock.USER_MAIN_DATA[0].keyData.proteinCount}
+            name="Proteines"
+            className="nutrient__icon--proteins"
+            icon={iconProteins}
+          />
+          <NutrientCard
+            data={mock.USER_MAIN_DATA[0].keyData.carbohydrateCount}
+            name="Glucides"
+            className="nutrient__icon--carbohydrates"
+            icon={iconCarbohydrates}
+          />
+          <NutrientCard
+            data={mock.USER_MAIN_DATA[0].keyData.lipidCount}
+            name="Lipides"
+            className="nutrient__icon--lipids"
+            icon={iconLipids}
+          />
         </div>
       </div>
     </main>
