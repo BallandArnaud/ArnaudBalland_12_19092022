@@ -1,0 +1,23 @@
+.goalChart__title {
+  color: var(--text-color-dark-1);
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  font-size: var(--font-size-15);
+  font-weight: 500;
+}
+
+.goalChart__legend {
+  color: var(--text-color-light-2);
+  text-align: center;
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.goalChart__percentage {
+  color: var(--text-color-dark-1);
+  font-size: var(--font-size-26);
+  font-weight: 700;
+}

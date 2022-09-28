@@ -16,4 +16,20 @@
 
 .dashboard__header .motivationalSpeech {
   margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.dashboard__charts {
+  display: flex;
+  flex-direction: column;
+  width: 835px;
+}
+
+.dashboard__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard__row:first-child{
+  margin-bottom: 30px;
 }

@@ -1,0 +1,21 @@
+.dailyActivityChart__title {
+  color: var(--text-color-dark-1);
+  position: absolute;
+  left: 30px;
+  top: 24px;
+  font-size: var(--font-size-15);
+}
+
+.dailyActivityChart__customTooltip {
+  background-color: var(--primary-color);
+  color: var(--text-color-light-1);
+  margin-left: 10px;
+  width: 39px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-8);
+  font-weight: 500;
+}
