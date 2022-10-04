@@ -3,6 +3,7 @@ import Dashboard from './pages/Dashboard'
 import Error from './pages/Error'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
+import SourceProvider from './utils/context'
 import './App.css'
 
 function App() {
@@ -12,7 +13,14 @@ function App() {
       <div className="mainContent">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/"
+            element={
+              <SourceProvider>
+                <Dashboard />
+              </SourceProvider>
+            }
+          />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

@@ -17,21 +17,19 @@ const translatedKindText = {
   6: 'intensité',
 }
 
-// Get only the kind data from data - kind:1
-const kindFromDataAsArray = (data) => {
-  return data.data.reduce((acc, curr) => {
-    return [...acc, curr.kind]
-  }, [])
-}
-
 // Format Perfomance - remplace kind:1 -> kind: 'cardio'
 const formatPerfomance = (data) => {
-  return data.data.map((d, index) => ({
+  return data.data.map((d) => ({
     ...d,
-    kind: translatedKindText[kindFromDataAsArray(data)[index]],
+    kind: translatedKindText[d.kind],
   }))
 }
 
+/**
+ * PerformanceChart display a radar chart based on user performances
+ * @param {object} data - The data of the user performances
+ * @returns PerformanceChart returns a radar chart based on user performances
+ */
 function PerformanceChart({ data }) {
   const formattedData = formatPerfomance(data)
 

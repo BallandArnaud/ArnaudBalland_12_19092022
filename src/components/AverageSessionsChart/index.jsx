@@ -47,8 +47,6 @@ const CustomCursor = ({ points, width }) => {
  * @returns AverageSessionsChart returns a chart based on user sessions over a week
  */
 function AverageSessionsChart({ data }) {
-  // console.log('data AverageSessionsChart :', data.sessions)
-
   return (
     <div
       className="averageSessionsChart"

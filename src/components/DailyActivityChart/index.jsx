@@ -11,6 +11,12 @@ import {
 } from 'recharts'
 import './index.css'
 
+/**
+ * Create a custom tooltip
+ * @param {bool} active - a boolean denoting if a tooltip should be displayed when a user mouses over the chart on desktop
+ * @param {array} payload - the data the tooltip will be displaying from the chart
+ * @returns CustomTooltip returns a custom tooltip
+ */
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -20,16 +26,24 @@ const CustomTooltip = ({ active, payload }) => {
       </div>
     )
   }
-
   return null
 }
 
+/**
+ * Format the date to get the date
+ * @param {string} date - a date. Exemple : 2022-10-01
+ * @returns formatDay returns only the day
+ */
 const formatDay = (date) => {
   return new Date(date).getDate()
 }
 
+/**
+ * DailyActivityChart display a bar chart based on user activity
+ * @param {object} data - The data of the user activity
+ * @returns DailyActivityChart returns a bar chart based on user activity
+ */
 function DailyActivityChart({ data }) {
-  // console.log('data DailyActivityChart :', data)
   return (
     <div
       className="dailyActivityChart"

@@ -1,4 +1,5 @@
-import Mock from '../../__mocks__/mock'
+import { useContext, useState, useEffect } from 'react'
+import { SourceContext } from '../../utils/context'
 import Greeting from '../../components/Greeting'
 import DailyActivityChart from '../../components/DailyActivityChart'
 import AverageSessionsChart from '../../components/AverageSessionsChart'
@@ -10,49 +11,82 @@ import iconProteins from '../../assets/svg/icon-proteins.svg'
 import iconCarbohydrates from '../../assets/svg/icon-carbohydrates.svg'
 import iconLipids from '../../assets/svg/icon-lipids.svg'
 import './index.css'
-import mock from '../../__mocks__/mock'
 
 function Dashboard() {
+  const { source } = useContext(SourceContext)
+  const [userInformations, setUserInformations] = useState(null)
+  const [userPerformance, setUserPerformance] = useState(null)
+  const [userActivity, setUserActivity] = useState(null)
+  const [userAverageSessions, setUserAverageSessions] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    Promise.all([
+      source.getUserData(),
+      source.getUserActivity(),
+      source.getUserAverageSessions(),
+      source.getUserPerformance(),
+    ])
+      .then(([userInfos, userActivities, userSessions, userPerf]) => {
+        setUserInformations(userInfos)
+        setUserActivity(userActivities)
+        setUserAverageSessions(userSessions)
+        setUserPerformance(userPerf)
+      })
+      .catch((e) => {
+        console.log(e.message)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }, [])
+
+  if (isLoading) {
+    return null
+  }
+
   return (
     <main className="dashboard">
       <div className="dashboard__header">
         <Greeting
-          firstname="Thomas"
+          firstname={userInformations.userInfos.firstName}
           motivationalSpeech="Félicitation ! Vous avez explosé vos objectifs hier 👏"
         />
       </div>
       <div className="dashboard__content">
         <div className="dashboard__charts">
           <div className="dashboard__row">
-            <DailyActivityChart data={Mock.USER_ACTIVITY[0]} />
+            {userActivity && <DailyActivityChart data={userActivity} />}
           </div>
           <div className="dashboard__row">
-            <AverageSessionsChart data={Mock.USER_AVERAGE_SESSIONS[0]} />
-            <PerformanceChart data={Mock.USER_PERFORMANCE[0]} />
-            <GoalChart data={Mock.USER_MAIN_DATA[0]} />
+            {userAverageSessions && (
+              <AverageSessionsChart data={userAverageSessions} />
+            )}
+            {userPerformance && <PerformanceChart data={userPerformance} />}
+            {userInformations && <GoalChart data={userInformations} />}
           </div>
         </div>
         <div className="dashboard__nutrients">
           <NutrientCard
-            data={mock.USER_MAIN_DATA[0].keyData.calorieCount}
+            data={userInformations.keyData.calorieCount}
             name="Calories"
             className="nutrient__icon--calories"
             icon={iconCalories}
           />
           <NutrientCard
-            data={mock.USER_MAIN_DATA[0].keyData.proteinCount}
+            data={userInformations.keyData.proteinCount}
             name="Proteines"
             className="nutrient__icon--proteins"
             icon={iconProteins}
           />
           <NutrientCard
-            data={mock.USER_MAIN_DATA[0].keyData.carbohydrateCount}
+            data={userInformations.keyData.carbohydrateCount}
             name="Glucides"
             className="nutrient__icon--carbohydrates"
             icon={iconCarbohydrates}
           />
           <NutrientCard
-            data={mock.USER_MAIN_DATA[0].keyData.lipidCount}
+            data={userInformations.keyData.lipidCount}
             name="Lipides"
             className="nutrient__icon--lipids"
             icon={iconLipids}

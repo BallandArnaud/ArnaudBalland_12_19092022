@@ -3,11 +3,9 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts'
 import './index.css'
 
 /**
- * Create a custom tooltip
- * @param {bool} active - a boolean denoting if a tooltip should be displayed when a user mouses over the chart on desktop
- * @param {array} payload - the data the tooltip will be displaying from the chart
+ * Create a custom legend
  * @param {number} progression - the current progression of the goal
- * @returns CustomTooltip returns a custom tooltip
+ * @returns CustomizedLegend returns a custom legend
  */
 const CustomizedLegend = ({ progression }) => {
   return (
@@ -23,14 +21,18 @@ const CustomizedLegend = ({ progression }) => {
   )
 }
 
+/**
+ * GoalChart display a pie chart based on the user's score percentage
+ * @param {object} data - The data of the user information
+ * @returns GoalChart returns a pie chart based on the user's score percentage
+ */
 function GoalChart({ data }) {
-  const progression = data.todayScore
+  const progression = data.score ?? data.todayScore // fix different name issue in api
   const remainsToBeDone = 1 - progression
   const dataGoal = [
     { name: 'progression', value: progression, color: '#FF0000' },
     { name: 'remainsToBeDone', value: remainsToBeDone, color: '#000000' },
   ]
-  // console.log('dataGoal :', dataGoal)
   const COLORS = ['#FF0000', 'transparent']
   const radiusOfTheCircle = 75
 
