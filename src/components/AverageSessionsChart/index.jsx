@@ -47,6 +47,12 @@ const CustomCursor = ({ points, width }) => {
  * @returns AverageSessionsChart returns a chart based on user sessions over a week
  */
 function AverageSessionsChart({ data }) {
+  const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+  const formattedData = data.sessions.map((session, index) => ({
+    day: weekDays[index],
+    sessionLength: session.sessionLength,
+  }))
+
   return (
     <div
       className="averageSessionsChart"
@@ -63,7 +69,7 @@ function AverageSessionsChart({ data }) {
       </div>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={data.sessions}
+          data={formattedData}
           margin={{
             left: 0,
             top: 20,

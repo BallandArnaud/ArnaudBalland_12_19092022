@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { SourceContext } from '../../utils/context'
 import Greeting from '../../components/Greeting'
 import DailyActivityChart from '../../components/DailyActivityChart'
@@ -19,13 +20,15 @@ function Dashboard() {
   const [userActivity, setUserActivity] = useState(null)
   const [userAverageSessions, setUserAverageSessions] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [isError, setError] = useState(false)
+  const { userId } = useParams()
 
   useEffect(() => {
     Promise.all([
-      source.getUserData(),
-      source.getUserActivity(),
-      source.getUserAverageSessions(),
-      source.getUserPerformance(),
+      source.getUserData(userId),
+      source.getUserActivity(userId),
+      source.getUserAverageSessions(userId),
+      source.getUserPerformance(userId),
     ])
       .then(([userInfos, userActivities, userSessions, userPerf]) => {
         setUserInformations(userInfos)
@@ -35,6 +38,7 @@ function Dashboard() {
       })
       .catch((e) => {
         console.log(e.message)
+        setError(true)
       })
       .finally(() => {
         setIsLoading(false)
@@ -43,6 +47,14 @@ function Dashboard() {
 
   if (isLoading) {
     return null
+  }
+
+  if (isError) {
+    return <h2>Oops, we can't reach the server. Please try again later.</h2>
+  }
+
+  if (!userInformations) {
+    return <h2>User not found.</h2>
   }
 
   return (

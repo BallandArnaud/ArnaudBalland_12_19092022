@@ -1,28 +1,48 @@
 export default class ApiService {
-  async getUserData() {
-    const userInformations = await fetch('http://localhost:3000/user/12/').then(
-      (r) => r.json()
-    )
-    return userInformations.data
+  /**
+   * @param {string} userId
+   * @returns {object} user data
+   */
+  async getUserData(userId) {
+    const userData = await fetch(
+      'http://localhost:3000/user/' + userId + '/'
+    ).then((r) => r.json())
+
+    if (typeof userData === 'string') {
+      return
+    }
+    return userData.data
   }
 
-  async getUserActivity() {
+  /**
+   * @param {string} userId
+   * @returns {object} user activity
+   */
+  async getUserActivity(userId) {
     const userActivity = await fetch(
-      'http://localhost:3000/user/12/activity'
+      'http://localhost:3000/user/' + userId + '/activity'
     ).then((r) => r.json())
     return userActivity.data
   }
 
-  async getUserAverageSessions() {
+  /**
+   * @param {string} userId
+   * @returns {object} user average sessions
+   */
+  async getUserAverageSessions(userId) {
     const userAverage = await fetch(
-      'http://localhost:3000/user/12/average-sessions'
+      'http://localhost:3000/user/' + userId + '/average-sessions'
     ).then((r) => r.json())
     return userAverage.data
   }
 
-  async getUserPerformance() {
+  /**
+   * @param {string} userId
+   * @returns {object} user performance
+   */
+  async getUserPerformance(userId) {
     const userPerformance = await fetch(
-      'http://localhost:3000/user/12/performance'
+      'http://localhost:3000/user/' + userId + '/performance'
     ).then((r) => r.json())
     return userPerformance.data
   }

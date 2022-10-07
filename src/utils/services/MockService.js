@@ -1,23 +1,47 @@
 import mock from '../../__mocks__/mock'
 
 export default class MockService {
-  async getUserData() {
-    const userData = mock.USER_MAIN_DATA[0]
+  /**
+   * @param {string} userId
+   * @returns {object} user data
+   */
+  async getUserData(userId) {
+    const userData = mock.USER_MAIN_DATA.find(
+      (res) => res.id === parseInt(userId)
+    )
     return userData
   }
 
-  async getUserActivity() {
-    const userActivity = mock.USER_ACTIVITY[0]
+  /**
+   * @param {string} userId
+   * @returns {object} user activity
+   */
+  async getUserActivity(userId) {
+    const userActivity = mock.USER_ACTIVITY.find(
+      (res) => res.userId === parseInt(userId)
+    )
     return userActivity
   }
 
-  async getUserAverageSessions() {
-    const userAverage = mock.USER_AVERAGE_SESSIONS[0]
+  /**
+   * @param {string} userId
+   * @returns {object} user average sessions
+   */
+  async getUserAverageSessions(userId) {
+    const userAverage = mock.USER_AVERAGE_SESSIONS.find(
+      (res) => res.userId === parseInt(userId)
+    )
     return userAverage
   }
 
-  async getUserPerformance() {
-    const userPerformance = mock.USER_PERFORMANCE[0]
+  /**
+   * @param {string} userId
+   * @returns {object} user performance
+   */
+  async getUserPerformance(userId) {
+    const userPerformance = mock.USER_PERFORMANCE.find(
+      (res) => res.userId === parseInt(userId)
+    )
     return userPerformance
   }
 }

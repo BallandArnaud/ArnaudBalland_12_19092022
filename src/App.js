@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Error from './pages/Error'
 import Header from './components/Header'
@@ -13,8 +13,9 @@ function App() {
       <div className="mainContent">
         <Sidebar />
         <Routes>
+          <Route path="/" element={<Navigate to="/12" />} />
           <Route
-            path="/"
+            path="/:userId"
             element={
               <SourceProvider>
                 <Dashboard />
