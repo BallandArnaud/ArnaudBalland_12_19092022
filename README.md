@@ -85,4 +85,4 @@ If you want to change user, in the url of your browser you can choose the user i
 Only id 12 and 18 work.
 
 For example if you want to visualize the data of the user whose id is 12 go to :
-`http://localhost:3001/12`
+`http://localhost:3001/user/12`
