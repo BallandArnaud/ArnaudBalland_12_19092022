@@ -13,9 +13,9 @@ function App() {
       <div className="mainContent">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Navigate to="/12" />} />
+          <Route path="/" element={<Navigate to="user/12" />} />
           <Route
-            path="/:userId"
+            path="user/:userId"
             element={
               <SourceProvider>
                 <Dashboard />
