@@ -7,7 +7,7 @@
 .dashboard__header .greeting {
   font-size: var(--font-size-48);
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 
@@ -17,7 +17,7 @@
 
 .dashboard__header .motivationalSpeech {
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .dashboard__content {
@@ -38,7 +38,7 @@
 }
 
 .dashboard__row:first-child{
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .dashboard__nutrients{
@@ -57,13 +57,13 @@
 
 @media screen and (min-width: 1200px) {
 
-  .dashboard__header .greeting {
-    margin-bottom: 20px;
-  }
-
   .dashboard__header .motivationalSpeech {
     margin-top: 0;
     margin-bottom: 20px;
+  }
+
+  .dashboard__row:first-child{
+    margin-bottom: 30px;
   }
 
   .chart-item {

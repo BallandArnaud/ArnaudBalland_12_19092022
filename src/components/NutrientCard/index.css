@@ -1,7 +1,7 @@
 .nutrient {
   background-color: var(--background-color-light);
-  width: 258px;
-  height: 124px;
+  width: 230px;
+  height: 110px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,8 +9,8 @@
 }
 
 .nutrient__icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   margin-left: 32px;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 60px;
+  height: 50px;
   margin-left: 24px;
 }
 
@@ -56,4 +56,20 @@
   margin-bottom: 0;
   font-size: var(--font-size-14);
   font-weight: 500;
+}
+
+@media screen and (min-width: 1200px) {
+  .nutrient {
+    width: 258px;
+    height: 124px;
+  }
+
+  .nutrient__icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nutrient__informations {
+    height: 60px;
+  }
 }
