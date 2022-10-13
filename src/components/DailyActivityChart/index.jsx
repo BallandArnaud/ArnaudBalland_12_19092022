@@ -45,16 +45,7 @@ const formatDay = (date) => {
  */
 function DailyActivityChart({ data }) {
   return (
-    <div
-      className="dailyActivityChart"
-      style={{
-        backgroundColor: '#FBFBFB',
-        position: 'relative',
-        width: 835,
-        height: 320,
-        borderRadius: 5,
-      }}
-    >
+    <div className="dailyActivityChart">
       <div className="dailyActivityChart__title">Activité quotidienne</div>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart

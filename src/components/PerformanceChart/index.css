@@ -1,0 +1,5 @@
+.performanceChart {
+  background-color: var(--text-color-dark-2);
+  position: relative;
+  border-radius: 5px;
+}

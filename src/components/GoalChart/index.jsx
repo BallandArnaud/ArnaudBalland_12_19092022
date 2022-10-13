@@ -34,19 +34,9 @@ function GoalChart({ data }) {
     { name: 'remainsToBeDone', value: remainsToBeDone, color: '#000000' },
   ]
   const COLORS = ['#FF0000', 'transparent']
-  const radiusOfTheCircle = 75
 
   return (
-    <div
-      className="goalChart"
-      style={{
-        backgroundColor: '#FBFBFB',
-        position: 'relative',
-        width: 260,
-        height: 260,
-        borderRadius: 5,
-      }}
-    >
+    <div className="goalChart chart-item">
       <div className="goalChart__title">Score</div>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart
@@ -57,7 +47,7 @@ function GoalChart({ data }) {
             bottom: 5,
           }}
         >
-          <circle cx="50%" cy="50%" r={radiusOfTheCircle} fill="#FFFFFF" />
+          <circle cx="50%" cy="50%" r={'25%'} fill="#FFFFFF" />
           <Pie
             data={dataGoal}
             dataKey={dataGoal.value}
@@ -66,8 +56,8 @@ function GoalChart({ data }) {
             cy="50%"
             startAngle={90}
             endAngle={450}
-            innerRadius={radiusOfTheCircle}
-            outerRadius={radiusOfTheCircle + 10}
+            innerRadius={'50%'}
+            outerRadius={'55%'}
             cornerRadius="100%"
           >
             {dataGoal.map((entry, index) => (

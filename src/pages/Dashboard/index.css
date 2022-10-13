@@ -1,6 +1,7 @@
 .dashboard {
-  width: calc(100% - 117px);
-  padding: 60px 90px 0 110px;
+  position: relative;
+  width: calc(100vw - 117px);
+  padding: 2% 5% 0 5%;
 }
 
 .dashboard__header .greeting {
@@ -21,12 +22,14 @@
 
 .dashboard__content {
   display: flex;
+  position: relative;
+  
 }
 
 .dashboard__charts {
   display: flex;
   flex-direction: column;
-  width: 835px;
+  width: 70%;
 }
 
 .dashboard__row {
@@ -42,5 +45,29 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   margin-left: 30px;
+  width: 30%;
+}
+
+.chart-item {
+  width: 30%;
+  aspect-ratio: 1/1;
+}
+
+@media screen and (min-width: 1200px) {
+
+  .dashboard__header .greeting {
+    margin-bottom: 20px;
+  }
+
+  .dashboard__header .motivationalSpeech {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .chart-item {
+    max-width: 300px;
+    max-height: 300px;
+  }
 }

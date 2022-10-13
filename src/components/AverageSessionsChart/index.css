@@ -1,4 +1,7 @@
 .averageSessionsChart{
+  background-color: var(--primary-color-light);
+  position: relative;
+  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -6,8 +9,8 @@
   color: var(--text-color-light-1);
   width: 147px;
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 10px;
+  left: 10px;
   font-size: var(--font-size-15);
   opacity: 0.6;
 }
@@ -20,4 +23,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .averageSessionsChart__title{
+    top: 30px;
+    left: 30px;
+  }
 }

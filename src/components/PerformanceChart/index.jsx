@@ -7,6 +7,7 @@ import {
   PolarRadiusAxis,
   Radar,
 } from 'recharts'
+import './index.css'
 
 const translatedKindText = {
   1: 'cardio',
@@ -34,21 +35,12 @@ function PerformanceChart({ data }) {
   const formattedData = formatPerfomance(data)
 
   return (
-    <div
-      className="performanceChart"
-      style={{
-        backgroundColor: '#282D30',
-        position: 'relative',
-        width: 260,
-        height: 260,
-        borderRadius: 5,
-      }}
-    >
+    <div className="performanceChart chart-item">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           data={formattedData}
           fill="#FFFFFF"
-          outerRadius={80}
+          outerRadius={'50%'}
           startAngle={30}
           endAngle={-330}
           margin={{

@@ -37,7 +37,7 @@ const CustomTooltip = ({ active, payload }) => {
 const CustomCursor = ({ points, width }) => {
   const { x } = points[0]
   return (
-    <Rectangle fill="hsla(0, 0%, 0%, 9.75%)" x={x} width={width} height={260} />
+    <Rectangle fill="hsla(0, 0%, 0%, 9.75%)" x={x} width={width} height={300} />
   )
 }
 
@@ -54,16 +54,7 @@ function AverageSessionsChart({ data }) {
   }))
 
   return (
-    <div
-      className="averageSessionsChart"
-      style={{
-        backgroundColor: '#FF0000',
-        position: 'relative',
-        width: 260,
-        height: 260,
-        borderRadius: 5,
-      }}
-    >
+    <div className="averageSessionsChart chart-item">
       <div className="averageSessionsChart__title">
         Durée moyenne des sessions
       </div>
